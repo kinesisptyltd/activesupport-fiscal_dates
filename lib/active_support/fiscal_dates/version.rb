@@ -1,4 +1,4 @@
-module Activesupport
+module ActiveSupport
   module FiscalDates
     VERSION = "1.0.0"
   end

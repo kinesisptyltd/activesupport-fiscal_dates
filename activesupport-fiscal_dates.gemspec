@@ -5,7 +5,7 @@ require 'active_support/fiscal_dates/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "activesupport-fiscal_dates"
-  spec.version       = Activesupport::FiscalDates::VERSION
+  spec.version       = ActiveSupport::FiscalDates::VERSION
   spec.authors       = ["Kinesis Pty Ltd"]
   spec.email         = ["devs@kinesis.org"]
   spec.summary       = %q{Adds fiscal date support}
@@ -20,6 +20,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.5"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec"
+  spec.add_development_dependency "pry"
+  spec.add_development_dependency "pry-debugger"
 
   spec.add_dependency "activesupport", "~> 4.0.0"
 end
