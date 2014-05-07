@@ -39,7 +39,6 @@ describe Date do
     end
   end
 
-
   describe ".fiscal_year_ranges_between" do
     let(:start_date) { Date.new(2012, 1) }
     let(:end_date) { Date.new(2014, 8) }
@@ -58,6 +57,34 @@ describe Date do
 
     it "contains ranges with the correct dates" do
       expect(Date.fiscal_year_ranges_between(start_date, end_date).first).to eq Date.new(2011, 7)..Date.new(2012, 6 ,30)
+    end
+  end
+
+  describe ".fiscal_years_since" do
+    let(:start_year) { 2012 }
+
+    before { allow(Date).to receive(:today) { Date.new(2014, 1) } }
+
+    it "returns an array" do
+      expect(Date.fiscal_years_since(start_year)).to be_an Array
+    end
+
+    it "contains the right number of years" do
+      expect(Date.fiscal_years_since(start_year).length).to eq 2
+    end
+  end
+
+  describe ".fiscal_year_label" do
+    context "year is 2008" do
+      it "correctly formats the years" do
+        expect(Date.fiscal_year_label(2008)).to eq "2008-9"
+      end
+    end
+
+    context "year is 2011" do
+      it "correctly formats the years" do
+        expect(Date.fiscal_year_label(2011)).to eq "2011-12"
+      end
     end
   end
 

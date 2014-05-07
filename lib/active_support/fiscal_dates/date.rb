@@ -22,6 +22,31 @@ class Date
     end
   end
 
+  def self.fiscal_years_since(start_year)
+    # Includes the current fiscal year
+    # Output gets set in .fiscal_year_label
+
+    result = []
+    today = Date.today
+    current_year = today.year.to_i
+    month = today.month.to_i
+    end_year = month >= 7 ? current_year : current_year - 1
+
+    (start_year..end_year).each do |year|
+      result << [fiscal_year_label(year), year.to_s]
+    end
+
+    result
+  end
+
+  def self.fiscal_year_label(starting_year)
+    # Output example: [["2012-13", "2012"], ["2013-14", "2013"]]
+
+    next_year = (starting_year.to_i + 1).to_s[-1,1]
+    next_year = (starting_year.to_i + 1).to_s[-2,2] if (starting_year.to_i + 1).to_s[-2,2].to_i > 9
+    "#{starting_year}-#{next_year}"
+  end
+
   def fiscal_year
     self.month < 7 ? self.year : self.year + 1
   end
