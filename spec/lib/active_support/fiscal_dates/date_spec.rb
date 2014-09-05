@@ -1,6 +1,6 @@
 require "spec_helper"
 require "pry"
-require "pry-debugger"
+require "pry-byebug"
 
 describe Date do
   describe ".current_fiscal_year" do
