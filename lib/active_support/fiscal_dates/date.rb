@@ -1,5 +1,6 @@
 class Date
   def self.current_fiscal_year
+    # Returns "2015" for FY 2014-15
     today = Date.today
     today.month < 7 ? today.year : today.year + 1
   end
@@ -14,17 +15,19 @@ class Date
   end
 
   def self.fiscal_year_ranges_between(start_date, end_date)
-    start_date_fiscal_year_start = start_date.fiscal_year_first_day
-    end_date_fiscal_year_start = end_date.fiscal_year_first_day
-
-    (start_date_fiscal_year_start.year..end_date_fiscal_year_start.year).map do |year|
+    (start_date.fiscal_year_first_day.year..end_date.fiscal_year_first_day.year).map do |year|
       Date.new(year, 7).fiscal_year_range
     end
+  end
+
+  def self.calendar_year_ranges_between(start_date, end_date)
+    (start_date.year..end_date.year).map { |year| Date.new(year).calendar_year_range }
   end
 
   def self.fiscal_years_since(start_year)
     # Includes the current fiscal year
     # Output gets set in .fiscal_year_label
+    # Suitable for year select dropdowns in Corporate.
 
     result = []
     today = Date.today

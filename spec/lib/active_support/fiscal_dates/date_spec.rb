@@ -60,6 +60,27 @@ describe Date do
     end
   end
 
+  describe ".calendar_year_ranges_between" do
+    let(:start_date) { Date.new(2012, 1) }
+    let(:end_date) { Date.new(2014, 8) }
+
+    it "returns an array" do
+      expect(Date.calendar_year_ranges_between(start_date, end_date)).to be_an Array
+    end
+
+    it "returns the correct number of elements" do
+      expect(Date.calendar_year_ranges_between(start_date, end_date).length).to eq 3
+    end
+
+    it "contains ranges" do
+      expect(Date.calendar_year_ranges_between(start_date, end_date).first).to be_a Range
+    end
+
+    it "contains ranges with the correct dates" do
+      expect(Date.calendar_year_ranges_between(start_date, end_date).first).to eq Date.new(2012, 1)..Date.new(2012, 12, 31)
+    end
+  end
+
   describe ".fiscal_years_since" do
     let(:start_year) { 2012 }
 
