@@ -84,7 +84,7 @@ Date.fiscal_years_since(2012)
 
 ### Instance methods
 
-Use `#fiscal_year` to get the current fiscal year as an integer.
+Use `#fiscal_year` to get the specified date's fiscal year as an integer.
 
 ```ruby
 Date.new(2014, 7).fiscal_year
