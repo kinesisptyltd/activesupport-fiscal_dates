@@ -33,7 +33,7 @@ class Date
     today = Date.today
     current_year = today.year.to_i
     month = today.month.to_i
-    end_year = month >= 7 ? current_year : current_year - 1
+    end_year = month >= 7 ? current_year + 1 : current_year
 
     (start_year..end_year).each do |year|
       result << [fiscal_year_label(year), year.to_s]
@@ -42,12 +42,10 @@ class Date
     result
   end
 
-  def self.fiscal_year_label(starting_year)
+  def self.fiscal_year_label(year)
     # Output example: [["2012-13", "2012"], ["2013-14", "2013"]]
 
-    next_year = (starting_year.to_i + 1).to_s[-1,1]
-    next_year = (starting_year.to_i + 1).to_s[-2,2] if (starting_year.to_i + 1).to_s[-2,2].to_i > 9
-    "#{starting_year}-#{next_year}"
+    "#{year - 1}-#{year.to_s[-2, 2]}"
   end
 
   def fiscal_year

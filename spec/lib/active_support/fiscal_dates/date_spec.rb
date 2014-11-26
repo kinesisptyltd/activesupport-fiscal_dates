@@ -91,20 +91,20 @@ describe Date do
     end
 
     it "contains the right number of years" do
-      expect(Date.fiscal_years_since(start_year).length).to eq 2
+      expect(Date.fiscal_years_since(start_year).length).to eq 3
     end
   end
 
   describe ".fiscal_year_label" do
     context "year is 2008" do
       it "correctly formats the years" do
-        expect(Date.fiscal_year_label(2008)).to eq "2008-9"
+        expect(Date.fiscal_year_label(2008)).to eq "2007-08"
       end
     end
 
     context "year is 2011" do
       it "correctly formats the years" do
-        expect(Date.fiscal_year_label(2011)).to eq "2011-12"
+        expect(Date.fiscal_year_label(2011)).to eq "2010-11"
       end
     end
   end
