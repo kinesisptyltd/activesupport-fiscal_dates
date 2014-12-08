@@ -43,7 +43,7 @@ class Date
   end
 
   def self.fiscal_year_label(year)
-    # Output example: [["2012-13", "2012"], ["2013-14", "2013"]]
+    # Output example: [["2012-13", "2013"], ["2013-14", "2014"]]
 
     "#{year - 1}-#{year.to_s[-2, 2]}"
   end
