@@ -22,6 +22,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 11"
   spec.add_development_dependency "rspec", "~> 3.5"
   spec.add_development_dependency "pry-byebug", "~> 3.4"
+  spec.add_development_dependency "rspec_junit_formatter", "~> 0.2.3"
 
   spec.add_dependency "activesupport", "~> 4.1", ">= 4.1.0"
 end
