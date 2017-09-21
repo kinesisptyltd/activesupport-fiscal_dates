@@ -1,5 +1,3 @@
-[![CircleCI](https://circleci.com/gh/kinesisptyltd/activesupport-fiscal_dates.svg?style=svg)](https://circleci.com/gh/kinesisptyltd/activesupport-fiscal_dates)
-
 # Activesupport::FiscalDates
 
 Activesupport::FiscalDates adds some useful methods for fiscal year calculations to the `Date` class. Currently it only supports the Australian fiscal year period (July to June).
