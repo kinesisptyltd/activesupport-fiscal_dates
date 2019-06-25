@@ -1,0 +1,14 @@
+env:
+  PROJECT_NAME: "activesupport-fiscal_dates"
+
+steps:
+  - label: ":rspec:"
+    command:
+      - squirrel restore Gemfile.lock vendor/gems ci.cache.sydney.kinesis.org
+      - bundle --path vendor/gems
+      - squirrel cache Gemfile.lock vendor/gems ci.cache.sydney.kinesis.org
+      - bundle exec rspec spec --no-fail-fast
+    plugins:
+      - docker-compose#v3.0.3:
+          run: test
+          config: .buildkite/docker-compose.yml

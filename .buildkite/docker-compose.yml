@@ -1,0 +1,9 @@
+version: "3.7"
+services:
+    test:
+      image: "722349771793.dkr.ecr.ap-southeast-2.amazonaws.com/rails:latest"
+      working_dir: /usr/app
+      volumes:
+        - "$PWD:/usr/app"
+      environment:
+        HOME: /usr/app
